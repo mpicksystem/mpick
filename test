@@ -1,0 +1,4 @@
+#!/bin/bash
+echo -n "Input> "
+read -r myvar
+echo ${myvar[1]}

@@ -1,0 +1,57 @@
+#!/bin/bash
+echo ""
+echo "MPick System V0.1"
+echo -n "Username: "
+read  username
+stty -echo
+echo -n "Password: "
+read  password
+stty echo
+login_result=`grep $username user_file | awk -F: '{print $2}'`
+
+mpick_main_function ()
+{
+while true 
+do
+	echo -n ">"
+	read mpick_command
+	if [ "$mpick_command" == ":QUIT" ] ; then
+		sed -i "s/0001:$username/0001:/g" ACC
+		echo ""
+		echo "Exiting MPick"
+		echo ""
+		exit 1
+	elif [ "$mpick_command" == "LISTU" ] ; then
+		echo ""
+		echo "Line USER"
+		awk -F: '{print $1, $2}' ACC
+		echo ""
+		mpick_main_function
+	elif [ "$mpick_command" == "LIST-FILES" ] ; then
+		echo ""
+		echo "Filename"
+		awk -F: '{print $1}' MD 
+		echo ""
+		mpick_main_function
+	elif [ "$mpick_command" == "WHO" ] ; then
+		grep "$username" ACC | awk -F: '{print $1, $2}'
+		echo ""
+	else
+		echo ""
+		mpick_main_function
+	fi
+done
+}
+
+
+if [ "$login_result" == "$password" ] ; then
+	sed -i "s/0001:/0001:$username/g" ACC
+	echo ""
+	echo ""
+        echo "You are on Port No 0001 martin"
+	echo "" 
+	mpick_main_function
+else
+	echo "Login failed."
+fi
+
