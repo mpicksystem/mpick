@@ -1,4 +1,10 @@
 #!/bin/bash
+#
+# MPick System GNU.
+# Programmer: Martin Richard Sanders.
+# E-mail    : mpick.system@gmail.com
+#
+
 echo ""
 echo "MPick System V0.1"
 echo -n "Username: "
