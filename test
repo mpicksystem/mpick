@@ -1,6 +1,7 @@
 #!/bin/bash
 # This is a test.
 # This is a test, also.
+# Testing from cygin
 echo -n "Input> "
 read -r myvar
 echo ${myvar[1]}
