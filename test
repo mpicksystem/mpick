@@ -2,6 +2,7 @@
 # This is a test.
 # This is a test, also.
 # Testing from cygin
+# SSH test.
 echo -n "Input> "
 read -r myvar
 echo ${myvar[1]}
