@@ -49,6 +49,15 @@ do
 	elif [ "$mpick_command" == "WHO" ] ; then
 		grep "$username" DATABASE/ACC | awk -F: '{print $1, $2}'
 		echo ""
+        elif [ "$mpick_command" == "HELP" ] ; then 
+        	echo ""
+		echo "Commands curreently available."
+		echo ""
+		echo "OFF         to logoff MPick System."
+        	echo "LIST-FILES  to list available files."
+        	echo "LISTU       to show users logged in."
+        	echo "WHO         to show username."
+        	echo ""
 	else
 		echo ""
 		mpick_main_function
@@ -62,10 +71,7 @@ if [ "$login_result" == "$password" ] ; then
         release=`grep "release" DATABASE/SYSTEM | awk -F: '{print $1}'`
 	echo ""
 	echo ""
-        echo "OFF         to logoff MPick System"
-        echo "LIST-FILES  to list available files"
-	echo "LISTU       to show users logged in"
-        echo "WHO         to show username"
+        echo "HELP for list of commands."
         echo ""
 	mpick_main_function
 else
