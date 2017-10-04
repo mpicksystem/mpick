@@ -60,6 +60,11 @@ if [ "$login_result" == "$password" ] ; then
 	sed -i "s/0001:/0001:$username/g" DATABASE/ACC
 	echo ""
 	echo ""
+        echo "LOGGOFF     to logoff MPick System"
+        echo "LIST-FILES  to list available files"
+	echo "LISTU       to show users logged in"
+        echo "WHO         to show username"
+        echo ""
 	mpick_main_function
 else
 	echo "Login failed."
