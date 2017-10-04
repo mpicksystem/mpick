@@ -20,7 +20,7 @@ stty -echo
 echo -n "Password: "
 read  password
 stty echo
-login_result=`grep $username DATABASE/SYSTEM | awk -F: '{print $2}'`
+login_result=`grep $username DATABASE/LOGINS | awk -F: '{print $2}'`
 
 mpick_main_function ()
 {
@@ -28,7 +28,7 @@ while true
 do
 	echo -n ">"
 	read mpick_command
-	if [ "$mpick_command" == "LOGOFF" ] ; then
+	if [ "$mpick_command" == "OFF" ] ; then
 		sed -i "s/0001:$username/0001:/g" DATABASE/ACC
 		echo ""
 		echo "Exiting MPick"
@@ -62,7 +62,7 @@ if [ "$login_result" == "$password" ] ; then
         release=`grep "release" DATABASE/SYSTEM | awk -F: '{print $1}'`
 	echo ""
 	echo ""
-        echo "LOGGOFF     to logoff MPick System"
+        echo "OFF         to logoff MPick System"
         echo "LIST-FILES  to list available files"
 	echo "LISTU       to show users logged in"
         echo "WHO         to show username"
