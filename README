@@ -2,9 +2,11 @@ MPick System
 Programmer: Martin Richard Sanders
 E-mail: mpick.system@gmail.com
 
-mpick			-- Executable in Bash
-DATABASE/ACC		-- Account file
-DATABASE/MD		-- Master Dictionary
+mpick			-- Executable in Bash.
+DATABASE/SYSTEM		-- Main settings file.
+DATABASE/ACC		-- Account file.
+DATABASE/MD		-- Master Dictionary.
+DATABASE/LOGINS		-- Login details for users.
 DATABASE/LICENSE	-- GPL file.
 
 The default login to MPick is:
@@ -19,6 +21,6 @@ Commands built in so far:
 WHO
 LISTU
 LIST-FILES
-LOGOFF
+OFF
 
 
