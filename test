@@ -3,6 +3,7 @@
 # This is a test, also.
 # Testing from cygin
 # SSH test.
+# Another test on c9.
 echo -n "Input> "
 read -r myvar
 echo ${myvar[1]}
