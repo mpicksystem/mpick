@@ -11,8 +11,9 @@
 #	LIST-FILES
 #
 
+version_release=`grep "release" DATABASE/SYSTEM | awk -F: '{print $2}'`
 echo ""
-echo "MPick System"
+echo "Release	: $version_release"
 echo -n "Username: "
 read  username
 stty -echo
@@ -58,9 +59,8 @@ done
 
 if [ "$login_result" == "$password" ] ; then
 	sed -i "s/0001:/0001:$username/g" DATABASE/ACC
+        release=`grep "release" DATABASE/SYSTEM | awk -F: '{print $1}'`
 	echo ""
-	echo ""
-        echo "MPick System Release 0.5"
 	echo ""
         echo "LOGGOFF     to logoff MPick System"
         echo "LIST-FILES  to list available files"
