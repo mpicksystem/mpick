@@ -4,6 +4,12 @@
 # Programmer: Martin Richard Sanders.
 # E-mail    : mpick.system@gmail.com
 #
+# Commands:
+#
+# 	WHO
+#	LISTU
+#	LIST-FILES
+#
 
 echo ""
 echo "MPick System V0.1"
@@ -54,8 +60,6 @@ if [ "$login_result" == "$password" ] ; then
 	sed -i "s/0001:/0001:$username/g" ACC
 	echo ""
 	echo ""
-        echo "You are on Port No 0001 martin"
-	echo "" 
 	mpick_main_function
 else
 	echo "Login failed."
