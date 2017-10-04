@@ -12,7 +12,7 @@
 #
 
 echo ""
-echo "MPick System V0.1"
+echo "MPick System"
 echo -n "Username: "
 read  username
 stty -echo
@@ -59,6 +59,8 @@ done
 if [ "$login_result" == "$password" ] ; then
 	sed -i "s/0001:/0001:$username/g" DATABASE/ACC
 	echo ""
+	echo ""
+        echo "MPick System Release 0.5"
 	echo ""
         echo "LOGGOFF     to logoff MPick System"
         echo "LIST-FILES  to list available files"
