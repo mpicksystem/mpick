@@ -1,80 +1,51 @@
-#!/bin/bash
+#!/usr/bin/python3
 #
-# MPick System GNU.
-# Programmer: Martin Richard Sanders.
-# E-mail    : mpick.system@gmail.com
-#
-# Commands:
-#
-# 	WHO
-#	LISTU
-#	LIST-FILES
-#
+# Mpick System.
+# Programmer: Martin Sanders
+# E-Mail    : mpick.system@gmail.com
 
-version_release=`grep "release" DATABASE/SYSTEM | awk -F: '{print $2}'`
-echo ""
-echo "Release	: $version_release"
-echo -n "Username: "
-read  username
-stty -echo
-echo -n "Password: "
-read  password
-stty echo
-login_result=`grep $username DATABASE/LOGINS | awk -F: '{print $2}'`
+def tcl (): 
+	tcl_command = ''
+	while tcl_command != "QUIT":
+		tcl_command = input('>');
+		if tcl_command == 'LISTU':
+			print('WHO command');
 
-mpick_main_function ()
-{
-while true 
-do
-	echo -n ">"
-	read mpick_command
-	if [ "$mpick_command" == "OFF" ] ; then
-		sed -i "s/0001:$username/0001:/g" DATABASE/ACC
-		echo ""
-		echo "Exiting MPick"
-		echo ""
-		exit 1
-	elif [ "$mpick_command" == "LISTU" ] ; then
-		echo ""
-		echo "Line USER"
-		awk -F: '{print $1, $2}' DATABASE/ACC
-		echo ""
-		mpick_main_function
-	elif [ "$mpick_command" == "LIST-FILES" ] ; then
-		echo ""
-		echo "Filename"
-		awk -F: '{print $1}' DATABASE/MD 
-		echo ""
-		mpick_main_function
-	elif [ "$mpick_command" == "WHO" ] ; then
-		grep "$username" DATABASE/ACC | awk -F: '{print $1, $2}'
-		echo ""
-        elif [ "$mpick_command" == "HELP" ] ; then 
-        	echo ""
-		echo "Commands curreently available."
-		echo ""
-		echo "OFF         to logoff MPick System."
-        	echo "LIST-FILES  to list available files."
-        	echo "LISTU       to show users logged in."
-        	echo "WHO         to show username."
-        	echo ""
-	else
-		echo ""
-		mpick_main_function
-	fi
-done
-}
+	# Message, and exit.
+	print('\nExiting MPick\n')
+	quit()
 
+# Function to authentica login.
+def authenticate(username,password):
+	login_file = "DATABASE/LOGINS";
+	read_login_file = open(login_file, "r")
+	for login_lines in read_login_file:
+		login_line = login_lines.split(':')
+		username_stored = login_line[1]
+		password_stored = login_line[2]
+		password_stored = password_stored.rsplit()
+		username_stored = username_stored.rsplit()
+		if username_stored == username:  
+			if password_stored == password:
+				tcl()
+				return	
+		print("Login failed.")
+		return
 
-if [ "$login_result" == "$password" ] ; then
-	sed -i "s/0001:/0001:$username/g" DATABASE/ACC
-        release=`grep "release" DATABASE/SYSTEM | awk -F: '{print $1}'`
-	echo ""
-	echo ""
-        echo "HELP for list of commands."
-        echo ""
-	mpick_main_function
-else
-	echo "Login failed."
-fi
+# Start of program.
+system_file = "DATABASE/SYSTEM"
+read_system_file = open(system_file, "r")
+for release_system_file_lines in read_system_file:
+	release_line = release_system_file_lines.split(':')
+	release_type = release_line[0]
+	release_number = release_line[1]
+	if release_type == 'Release':
+		release_version = str(release_number)
+
+print('\nRelease ' + release_version)
+username = input('Username: ')
+password = input('Password: ')
+username = username.rsplit()
+password = password.rsplit()
+authenticate(username,password)
 

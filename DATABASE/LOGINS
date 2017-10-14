@@ -1,1 +1,5 @@
-SYSPROG:pass
+SYSTEM:USER:pass
+SYSTEM:SYSPROG:pass:SYSPROG
+LOGIN:martin:pass:QMER
+LOGIN:sanders:pass:SYSPROG
+
