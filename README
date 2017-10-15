@@ -2,7 +2,7 @@ MPick System
 Programmer: Martin Richard Sanders
 E-mail: mpick.system@gmail.com
 
-mpick			-- Executable in Bash.
+mpick			-- Executable in Python.
 DATABASE/SYSTEM		-- Main settings file.
 DATABASE/ACC		-- Account file.
 DATABASE/MD		-- Master Dictionary.
