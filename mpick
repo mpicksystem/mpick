@@ -4,7 +4,7 @@
 # Programmer: Martin Sanders
 # E-Mail    : mpick.system@gmail.com
 
-def tcl (): 
+def tcl ():
 	tcl_command = ''
 	while tcl_command != "QUIT":
 		tcl_command = input('>');
@@ -25,12 +25,13 @@ def authenticate(username,password):
 		password_stored = login_line[2]
 		password_stored = password_stored.rsplit()
 		username_stored = username_stored.rsplit()
-		if username_stored == username:  
+		if username_stored == username:
 			if password_stored == password:
 				tcl()
-				return	
-		print("Login failed.")
-		return
+				return
+
+
+
 
 # Start of program.
 system_file = "DATABASE/SYSTEM"
@@ -48,4 +49,3 @@ password = input('Password: ')
 username = username.rsplit()
 password = password.rsplit()
 authenticate(username,password)
-
