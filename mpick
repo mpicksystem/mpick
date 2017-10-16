@@ -36,7 +36,6 @@ def authenticate(username,password):
 		username_stored = username_stored.rsplit()
 		if username_stored == username:
 			if password_stored == password:
-				built_in_commands()
 				tcl()
 				return
 
