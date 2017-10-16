@@ -6,7 +6,7 @@
 
 def tcl ():
 	tcl_command = ''
-	while tcl_command != "QUIT":
+	while tcl_command != "OFF":
 		tcl_command = input('>');
 		if tcl_command == 'LISTU':
 			print('WHO command');
@@ -14,6 +14,15 @@ def tcl ():
 	# Message, and exit.
 	print('\nExiting MPick\n')
 	quit()
+
+# Built in commands.
+def built_in_commands():
+	print("\nCOMMANDS AVAILABLE:")
+	print("OFF")
+	print("WHO")
+	print("LISTU")
+	print("LIST-FILES\n")
+	return
 
 # Function to authentica login.
 def authenticate(username,password):
@@ -27,6 +36,7 @@ def authenticate(username,password):
 		username_stored = username_stored.rsplit()
 		if username_stored == username:
 			if password_stored == password:
+				built_in_commands()
 				tcl()
 				return
 
@@ -40,6 +50,7 @@ for release_system_file_lines in read_system_file:
 	release_line = release_system_file_lines.split(':')
 	release_type = release_line[0]
 	release_number = release_line[1]
+	release_number = release_number[:-1]
 	if release_type == 'Release':
 		release_version = str(release_number)
 
