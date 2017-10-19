@@ -1,5 +1,6 @@
-MPick is an open source Pick OS Simulator.
-
+MPick is an open source Pick OS Simulator written in Python3.
+To install Python3 on CentOS: yum install python3
+To install Python3 on Ubunto: apt
 mpick			-- Executable in Python.
 DATABASE/SYSTEM		-- Main settings file.
 DATABASE/ACC		-- Account file.
