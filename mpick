@@ -10,6 +10,16 @@ import getpass
 import fileinput
 import sys
 
+###############################################################
+# Filesystem functions.
+def update_file(file,searchExp,replaceExp):
+        for line in fileinput.input(file, inplace=1):
+                if searchExp in line:
+                        line = line.replace(searchExp,replaceExp)
+                sys.stdout.write(line)
+
+###############################################################
+# Pick environment commands.
 def listu():
 	listu_file = "DATABASE/ACC"
 	read_listu_file = open(listu_file, "r")
@@ -17,6 +27,8 @@ def listu():
 		print(listu_lines[:-1])
 
 
+###############################################################
+# Main TCL routine which prompts for commands.
 def tcl ():
 	tcl_command = ''
 	while tcl_command != "OFF":
@@ -28,12 +40,6 @@ def tcl ():
 	update_file("DATABASE/ACC","0001:martin","0001:")
 	print('\nExiting MPick\n')
 	quit()
-
-def update_file(file,searchExp,replaceExp):
-	for line in fileinput.input(file, inplace=1):
-		if searchExp in line:
-			line = line.replace(searchExp,replaceExp)
-		sys.stdout.write(line)
 
 
 ###############################################################
