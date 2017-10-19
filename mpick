@@ -1,9 +1,10 @@
 #!/usr/bin/python3
-#
+###############################################################
 # Mpick System.
 # Programmer: Martin Sanders
 # E-Mail    : mpick.system@gmail.com
 
+###############################################################
 # Libraries to import.
 import getpass
 
@@ -25,6 +26,7 @@ def tcl ():
 	print('\nExiting MPick\n')
 	quit()
 
+###############################################################
 # Built in commands.
 def built_in_commands():
 	print("\nCOMMANDS AVAILABLE:")
@@ -34,6 +36,7 @@ def built_in_commands():
 	print("LIST-FILES\n")
 	return
 
+###############################################################
 # Function to authentica login.
 def authenticate(username,password):
 	login_file = "DATABASE/LOGINS"
@@ -51,7 +54,7 @@ def authenticate(username,password):
 
 
 
-
+###############################################################
 # Start of program.
 system_file = "DATABASE/SYSTEM"
 read_system_file = open(system_file, "r")
