@@ -7,6 +7,8 @@
 ###############################################################
 # Libraries to import.
 import getpass
+import fileinput
+import sys
 
 def listu():
 	listu_file = "DATABASE/ACC"
@@ -23,8 +25,16 @@ def tcl ():
 			listu()	
 
 	# Message, and exit.
+	update_file("DATABASE/ACC","0001:martin","0001:")
 	print('\nExiting MPick\n')
 	quit()
+
+def update_file(file,searchExp,replaceExp):
+	for line in fileinput.input(file, inplace=1):
+		if searchExp in line:
+			line = line.replace(searchExp,replaceExp)
+		sys.stdout.write(line)
+
 
 ###############################################################
 # Built in commands.
@@ -49,6 +59,7 @@ def authenticate(username,password):
 		username_stored = username_stored.rsplit()
 		if username_stored == username:
 			if password_stored == password:
+				update_file("DATABASE/ACC","0001:","0001:martin")
 				tcl()
 				return
 
@@ -71,4 +82,6 @@ username = input('Username: ')
 password = getpass.getpass('Password: ')
 username = username.rsplit()
 password = password.rsplit()
+
+# Here we jump to the authenticate function.
 authenticate(username,password)
