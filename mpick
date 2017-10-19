@@ -4,6 +4,8 @@
 # Programmer: Martin Sanders
 # E-Mail    : mpick.system@gmail.com
 
+# Libraries to import.
+import getpass
 
 def listu():
 	listu_file = "DATABASE/ACC"
@@ -63,7 +65,7 @@ for release_system_file_lines in read_system_file:
 
 print('\nRelease ' + release_version)
 username = input('Username: ')
-password = input('Password: ')
+password = getpass.getpass('Password: ')
 username = username.rsplit()
 password = password.rsplit()
 authenticate(username,password)
