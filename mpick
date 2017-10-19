@@ -4,12 +4,20 @@
 # Programmer: Martin Sanders
 # E-Mail    : mpick.system@gmail.com
 
+
+def listu():
+	listu_file = "DATABASE/ACC"
+	read_listu_file = open(listu_file, "r")
+	for listu_lines in read_listu_file:
+		print(listu_lines[:-1])
+
+
 def tcl ():
 	tcl_command = ''
 	while tcl_command != "OFF":
 		tcl_command = input('>');
 		if tcl_command == 'LISTU':
-			print('WHO command');
+			listu()	
 
 	# Message, and exit.
 	print('\nExiting MPick\n')
@@ -26,7 +34,7 @@ def built_in_commands():
 
 # Function to authentica login.
 def authenticate(username,password):
-	login_file = "DATABASE/LOGINS";
+	login_file = "DATABASE/LOGINS"
 	read_login_file = open(login_file, "r")
 	for login_lines in read_login_file:
 		login_line = login_lines.split(':')
