@@ -1,6 +1,4 @@
-MPick System
-Programmer: Martin Richard Sanders
-E-mail: mpick.system@gmail.com
+MPick is an open source Pick OS Simulator.
 
 mpick			-- Executable in Python.
 DATABASE/SYSTEM		-- Main settings file.
@@ -18,9 +16,7 @@ Run MPick by entering ./mpick from the mpick directory.
 
 Commands built in so far:
 
-WHO
-LISTU
-LIST-FILES
-OFF
+OFF		- Logoff Mpick.
+LISTU		- List users logged in.
 
 
