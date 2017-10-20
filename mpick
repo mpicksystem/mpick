@@ -3,6 +3,9 @@
 # Mpick System.
 # Programmer: Martin Sanders
 # E-Mail    : mpick.system@gmail.com
+#
+# To install Python3 on CentOS: sudo yum install python3
+# To install Python3 on Ubunto: sudo apt-get install python3
 
 ###############################################################
 # Libraries to import.
@@ -27,6 +30,18 @@ def listu():
 		print(listu_lines[:-1])
 
 
+def listfiles():
+	listfiles_file = "DATABASE/MD"
+	read_listfiles_file = open(listfiles_file, "r")
+	for listfiles_lines in read_listfiles_file:
+		print(listfiles_lines[:-1])
+
+def tcl_help():
+	print('\nCOMMANDS AVAILABLE\n')
+	print('OFF		- Logoff MPick')
+	print('LISTU		- List Users')
+	print('LIST-FILES	- List filesS\n')
+
 ###############################################################
 # Main TCL routine which prompts for commands.
 def tcl ():
@@ -35,6 +50,10 @@ def tcl ():
 		tcl_command = input('>');
 		if tcl_command == 'LISTU':
 			listu()	
+		if tcl_command == 'LIST-FILES':
+			listfiles()
+		if tcl_command == 'HELP':
+			tcl_help()
 
 	# Message, and exit.
 	update_file("DATABASE/ACC","0001:martin","0001:")

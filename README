@@ -1,7 +1,7 @@
 MPick is an open source Pick OS Simulator written in Python3.
 
-To install Python3 on CentOS: yum install python3
-To install Python3 on Ubunto: apt-get install python3
+To install Python3 on CentOS: sudo yum install python3
+To install Python3 on Ubunto: sudo apt-get install python3
 
 mpick			-- Executable in Python.
 DATABASE/SYSTEM		-- Main settings file.
