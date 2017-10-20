@@ -39,6 +39,7 @@ def listfiles():
 def tcl_help():
 	print('\nCOMMANDS AVAILABLE\n')
 	print('OFF		- End session.')
+	print(':QUIT		- Exit from MPick to the OS prompt.')
 	print('LISTU		- Lists information about users logged in.')
 	print('LIST-FILE	- List files in the Master Dictionary.\n')
 
@@ -46,7 +47,7 @@ def tcl_help():
 # Main TCL routine which prompts for commands.
 def tcl ():
 	tcl_command = ''
-	while tcl_command != "OFF":
+	while tcl_command != ":QUIT":
 		tcl_command = input('>');
 		if tcl_command == 'LISTU':
 			listu()	
@@ -54,6 +55,9 @@ def tcl ():
 			listfiles()
 		if tcl_command == 'HELP':
 			tcl_help()
+		if tcl_command == 'OFF':
+			update_file("DATABASE/ACC","0001:martin","0001:")
+			start_of_mpick()
 
 	# Message, and exit.
 	update_file("DATABASE/ACC","0001:martin","0001:")
@@ -89,21 +93,26 @@ def authenticate(username,password):
 
 ###############################################################
 # Start of program.
-system_file = "DATABASE/SYSTEM"
-read_system_file = open(system_file, "r")
-for release_system_file_lines in read_system_file:
-	release_line = release_system_file_lines.split(':')
-	release_type = release_line[0]
-	release_number = release_line[1]
-	release_number = release_number[:-1]
-	if release_type == 'Release':
-		release_version = str(release_number)
+def start_of_mpick():
+	system_file = "DATABASE/SYSTEM"
+	read_system_file = open(system_file, "r")
+	for release_system_file_lines in read_system_file:
+		release_line = release_system_file_lines.split(':')
+		release_type = release_line[0]
+		release_number = release_line[1]
+		release_number = release_number[:-1]
+		if release_type == 'Release':
+			release_version = str(release_number)
 
-print('\nRelease ' + release_version)
-username = input('Username: ')
-password = getpass.getpass('Password: ')
-username = username.rsplit()
-password = password.rsplit()
+	print('\nRelease ' + release_version)
+	username = input('Username: ')
+	password = getpass.getpass('Password: ')
+	username = username.rsplit()
+	password = password.rsplit()
 
-# Here we jump to the authenticate function.
-authenticate(username,password)
+	# Here we jump to the authenticate function.
+	authenticate(username,password)
+
+###############################################################
+# Start point.
+start_of_mpick()
