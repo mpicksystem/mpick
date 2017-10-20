@@ -60,7 +60,6 @@ def tcl ():
 	print('\nExiting MPick\n')
 	quit()
 
-
 ###############################################################
 # Built in commands.
 def built_in_commands():
@@ -87,8 +86,6 @@ def authenticate(username,password):
 				update_file("DATABASE/ACC","0001:","0001:martin")
 				tcl()
 				return
-
-
 
 ###############################################################
 # Start of program.
