@@ -10,12 +10,8 @@ DATABASE/MD		-- Master Dictionary.
 DATABASE/LOGINS		-- Login details for users.
 DATABASE/LICENSE	-- GPL file.
 
-The default login to MPick is:
-
-Username: SYSPROG 
-Password: pass
-
 Run MPick by entering ./mpick from the mpick directory.
+The default login is SYSPROG/pass.
 
 Commands built in so far:
 
