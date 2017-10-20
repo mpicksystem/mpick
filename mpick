@@ -40,7 +40,7 @@ def tcl_help():
 	print('\nCOMMANDS AVAILABLE\n')
 	print('OFF		- End session.')
 	print('LISTU		- Lists information about users logged in.')
-	print('LIST-FILE	- List files in the Master Dictionary.\n')
+	print('LIST-FILES	- List files in the Master Dictionary.\n')
 
 ###############################################################
 # Main TCL routine which prompts for commands.

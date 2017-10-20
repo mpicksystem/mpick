@@ -17,6 +17,6 @@ Commands built in so far:
 
 OFF		- End session.
 LISTU		- Lists information about users logged in.
-LIST-FILE       - List files in the Master Dictionary.
+LIST-FILES       - List files in the Master Dictionary.
 
 
