@@ -19,7 +19,8 @@ Run MPick by entering ./mpick from the mpick directory.
 
 Commands built in so far:
 
-OFF		- Logoff Mpick.
-LISTU		- List users logged in.
+OFF		- End session.
+LISTU		- Lists information about users logged in.
+LIST-FILE       - List files in the Master Dictionary.
 
 
