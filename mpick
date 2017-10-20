@@ -39,7 +39,6 @@ def listfiles():
 def tcl_help():
 	print('\nCOMMANDS AVAILABLE\n')
 	print('OFF		- End session.')
-	print(':QUIT		- Exit from MPick to the OS prompt.')
 	print('LISTU		- Lists information about users logged in.')
 	print('LIST-FILE	- List files in the Master Dictionary.\n')
 
@@ -47,7 +46,7 @@ def tcl_help():
 # Main TCL routine which prompts for commands.
 def tcl ():
 	tcl_command = ''
-	while tcl_command != ":QUIT":
+	while tcl_command != "OFF":
 		tcl_command = input('>');
 		if tcl_command == 'LISTU':
 			listu()	
@@ -55,9 +54,6 @@ def tcl ():
 			listfiles()
 		if tcl_command == 'HELP':
 			tcl_help()
-		if tcl_command == 'OFF':
-			update_file("DATABASE/ACC","0001:martin","0001:")
-			start_of_mpick()
 
 	# Message, and exit.
 	update_file("DATABASE/ACC","0001:martin","0001:")
@@ -93,6 +89,7 @@ def authenticate(username,password):
 
 ###############################################################
 # Start of program.
+
 def start_of_mpick():
 	system_file = "DATABASE/SYSTEM"
 	read_system_file = open(system_file, "r")
@@ -116,3 +113,4 @@ def start_of_mpick():
 ###############################################################
 # Start point.
 start_of_mpick()
+

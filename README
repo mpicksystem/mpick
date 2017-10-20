@@ -16,7 +16,6 @@ The default login is SYSPROG/pass.
 Commands built in so far:
 
 OFF		- End session.
-:QUIT           - Exit from MPick to the OS prompt.
 LISTU		- Lists information about users logged in.
 LIST-FILE       - List files in the Master Dictionary.
 
