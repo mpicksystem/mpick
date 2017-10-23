@@ -11,12 +11,13 @@ DATABASE/LOGINS		-- Login details for users.
 DATABASE/LICENSE	-- GPL file.
 
 Run MPick by entering ./mpick from the mpick directory.
-The default login is SYSPROG/pass.
+Default System login is SYSPROG/pass.
+Default User login is user1/pass.
 
 Commands built in so far:
 
-OFF		- End session.
-LISTU		- Lists information about users logged in.
+OFF		 - End session.
+LISTU		 - Lists information about users logged in.
 LIST-FILES       - List files in the Master Dictionary.
 
 
