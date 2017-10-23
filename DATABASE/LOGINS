@@ -1,4 +1,3 @@
-SYSTEM:USER:pass
 SYSTEM:SYSPROG:pass:SYSPROG
-LOGIN:martin:pass:QMER
-LOGIN:sanders:pass:SYSPROG
+LOGIN:user1:pass:QMER
+LOGIN:user2:pass:QMER
