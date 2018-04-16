@@ -7,13 +7,11 @@
 # To install Python3 on CentOS: sudo yum install python3
 # To install Python3 on Ubunto: sudo apt-get install python3
 
-###############################################################
 # Libraries to import.
 import getpass
 import fileinput
 import sys
 
-###############################################################
 # Filesystem functions.
 def update_file(file,searchExp,replaceExp):
         for line in fileinput.input(file, inplace=1):
@@ -21,7 +19,6 @@ def update_file(file,searchExp,replaceExp):
                         line = line.replace(searchExp,replaceExp)
                 sys.stdout.write(line)
 
-###############################################################
 # Pick environment commands.
 def listu():
 	listu_file = "DATABASE/ACC"
@@ -42,7 +39,6 @@ def tcl_help():
 	print('LISTU		- Lists information about users logged in.')
 	print('LIST-FILES	- List files in the Master Dictionary.\n')
 
-###############################################################
 # Main TCL routine which prompts for commands.
 def tcl ():
 	tcl_command = ''
@@ -60,7 +56,6 @@ def tcl ():
 	print('\nExiting MPick\n')
 	quit()
 
-###############################################################
 # Built in commands.
 def built_in_commands():
 	print("\nCOMMANDS AVAILABLE:")
@@ -70,7 +65,6 @@ def built_in_commands():
 	print("LIST-FILES\n")
 	return
 
-###############################################################
 # Function to authentica login.
 def authenticate(username,password):
 	login_file = "DATABASE/LOGINS"
@@ -87,9 +81,7 @@ def authenticate(username,password):
 				tcl()
 				return
 
-###############################################################
 # Start of program.
-
 def start_of_mpick():
 	system_file = "DATABASE/SYSTEM"
 	read_system_file = open(system_file, "r")
@@ -110,7 +102,6 @@ def start_of_mpick():
 	# Here we jump to the authenticate function.
 	authenticate(username,password)
 
-###############################################################
 # Start point.
 start_of_mpick()
 
